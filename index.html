@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HY</title>
+    <script src="Angular.js"></script>
+    <script src="Angular-route.js"></script>
+    <script src="Script.js"></script>
+    <script src="Controllers/home.controller.js"></script>
+    <script src="Controllers/design.controller.js"></script>
+    <script src="Controllers/food.controller.js"></script>
+    <script src="Controllers/relationships.controller.js"></script>
+    <script src="Controllers/style.controller.js"></script>
+    <script src="Controllers/travel.controller.js"></script>
+    <script src="Controllers/create.controller.js"></script>
+    <script src="https://kit.fontawesome.com/0810bfd992.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="Styles/home.css">
+    <link rel="stylesheet" href="Styles/index.css">
+    <link rel="stylesheet" href="Styles/homepage.css">
+</head>
+
+<body ng-controller="myController">
+    <div>
+        <hr class="navline">
+        <nav style="display: flex; padding: 0 3rem;">
+            <a href="#/!" ng-click="active=home" }}><img src="Images/logo.png" style="margin: 1rem 0" height="100"
+                    width="100" alt=""></a>
+            <ul class="navlinks">
+                <li ng-repeat="link in links">
+                    <a class="navlink" href={{"#!"+link}} ng-click={{"active="+link}}>{{link | uppercase}}</a>
+                </li>
+            </ul>
+        </nav>
+        <hr class=" navline">
+                        <nav style="display: flex; padding: 0 3rem;">
+                            <ul class="cnavlinks">
+                                <li ng-repeat="crudlink in crudlinks">
+                                    <a class="cnavlink" href={{"#!"+crudlink}} ng-click={{"active="+crudlink}}>{{crudlink | uppercase}}</a>
+                </li>
+            </ul>
+        </nav>       
+    </div>
+    <div ng-view></div>
+</body>
+
+</html>

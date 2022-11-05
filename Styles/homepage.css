@@ -1,0 +1,111 @@
+body{
+    margin: 0;
+    background-color: #F8ECD1;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+.bar {
+    padding: 1rem;
+    position: relative;
+    text-align: right;
+    line-height: 1;
+}
+.navline{
+    height:1px;
+    border-width:0;
+    color: #85586F;
+    background-color:#85586F;
+}
+
+.bar a{
+    background-color: #85586F center center no-repeat;
+    color: white;
+    width: 32px;
+    height: 26px;
+    text-align: center;
+    padding-top: 8px;
+    display: inline-block;
+    text-decoration: none !important;
+    margin-right: 0.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.bar a.active {
+    background-color: #85586F;
+    color: #85586F;
+}
+
+ul.list {
+    list-style: none;
+    margin: 0 15%;
+    text-align: left;
+}
+
+ul.list li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    overflow: hidden;
+}
+
+ul.list li img {
+    float: left;
+    border: none;
+}
+
+.list-card{
+    margin: 0.5rem;
+    margin-bottom: 0;
+}
+
+ul.grid {
+    list-style: none;
+    width: 570px;
+    margin: 0 auto;
+    text-align: left;
+}
+.card{
+    margin: 0.5rem;
+    margin-bottom: 0;
+}
+
+.cardcontent{
+    height: 5rem;
+    background-color: #85586F;
+    color: #ddd;
+    padding: 0.25rem;
+    display: flex; 
+    justify-content: space-between;
+}
+
+ul.grid li {
+    padding: 2px;
+    float: left;
+}
+
+input{
+    border-bottom: 1px solid #85586F;
+    border-left: unset;
+    border-right: unset;
+    border-top: unset;
+    padding: 4px 0px;
+    background-color: #F8ECD1;
+    margin: 1rem;
+
+}
+input:focus-visible{
+    outline: none;
+}
+.videocontrols{
+    display: flex;
+    width: 50%;
+    color: wheat;
+    justify-content: space-evenly;
+    position: relative;
+    bottom: 3rem;
+    margin: auto;
+} 
+i:hover{
+    color: aliceblue;
+}
+

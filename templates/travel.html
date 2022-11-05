@@ -1,0 +1,122 @@
+<div ng-controller="travelController" class="pagemargin">
+    <header class="navbar">
+        <nav>
+            Search : <input type="text" placeholder="search blog posts by title" ng-model="searchText.title" name=""
+                id="">
+        </nav>
+        <ul style="list-style-type: none;">
+            <li ng-repeat="desBlog in desBlogs | filter: searchText.title">
+                {{desBlog.title}}
+                <p style="font-weight: 100;">{{desBlog.content | limitTo: 15}}...</p>
+            </li>
+        </ul>
+    </header>
+    <hr class="navline">
+    <section>
+        <ul style="list-style-type: none;" ng-init="desBlogs = desBlogsFind()">
+            <li ng-repeat="desBlog in desBlogs | orderObjectBy:'numComments' |limitTo:1">
+                <div class="blogheader">
+                    <p>{{desBlog.date | date:'dd MMM, yyyy'}}</p>
+                    <p>{{desBlog.category | FirstLetterCaps}}</p>
+                    <p class="colorText">{{"by harshitaa yarramsetti" | FirstLetterCaps}}</p>
+                </div>
+                <div>
+                    <h1 class="textcenter">{{desBlog.title | uppercase }}</h1>
+                    <img class="blogimg" src={{desBlog.image}} alt={{desBlog.title}}>
+                </div>
+                <div class="blogcontentsection">
+                    <div class="commentsside">
+                        <p>{{"15 comments" | uppercase}}</p>
+                        <input class="btn" type="submit" value="LEAVE A COMMENT" ng-click="scrollTo('comments')">
+                    </div>
+                    <div class="blogcontent">
+                        {{desBlog.content}}
+                    </div>
+                    <div class="popular">
+                        <p class="colorText">{{desBlog.category | uppercase}}</p>
+                        <h2 class="colorText">Popular</h2>
+                        <hr class="smallline">
+                        <div class="colorText">
+                            <ul style="list-style-type: none;">
+                                <li ng-repeat="blog in desBlogs | orderObjectBy:'numComments' |limitTo:3">
+                                    <div>
+                                        {{desBlog.id}}
+                                        <p>{{desBlog.title}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                </div>
+            </li>
+        </ul>
+
+        <div id="comments">
+            <h2 class="margin">{{"15 comments" | uppercase}}</h2>
+            <input class="btn" type="submit" value="LEAVE A COMMENT">
+        </div>
+
+        <h2 style="margin-left: 15rem;"> Write a Comment </h2>
+
+        <div class="textcenter" ng-controller="commentsController">
+            <form>
+                <ul>
+                    <div ng-repeat="comment in comments">
+                        <h4>{{comment.name | FirstLetterCaps}} says...</h4>
+                        <p style="font-weight: 300;">{{comment.comment}}</p>
+                        <p class="blogheader" style="margin-left: 15rem;">{{comment.date | date:'d MMM, y h:mm:ss
+                            a'}}</p>
+
+                        <hr class="navline">
+                    </div>
+                    <div ng-show="isComments" style="margin-left: 15rem;">
+
+                        <form>
+                            <ul>
+                                <div class="replyAlign" ng-repeat="reply in replies| orderBy: $index : true">
+                                    <hr class="navline">
+                                    <h4>{{reply.name | FirstLetterCaps}} says...</h4>
+                                    <p style="font-weight: 300;">{{reply.comment}}</p>
+                                    <p class="blogheader" style="margin-left: 15rem;">{{reply.date | date:'d MMM, y
+                                        h:mm:ss
+                                        a'}}</p>
+                                    <hr class="navline">
+                                </div>
+                            </ul>
+                            <textarea class="commtextar"  style="margin: auto;"  rows="5" cols="20" ng-model="replyText"
+                                placeholder="Reply..."></textarea>
+                            <div class="inputfields">
+                                <div>
+                                    <label for="name">Name*</label>
+                                    <input class="input" type="text" ng-model="rname" name="name" required>
+                                </div>
+                                <br>
+                                <div>
+                                    <label for="email">Email*</label>
+                                    <input class="input" type="email" name="email" ng-model="remail" required>
+                                </div>
+                            </div>
+                            <button class="btn" ng-click='addReply();' id="replyBtn">Reply</button>
+                        </form>
+
+                    </div>
+                </ul>
+                <textarea class="commtextar" style="margin: auto;" rows="10" cols="40" ng-model="commentText"></textarea>
+                <div class="inputfields">
+                    <div>
+                        <label for="name">Name*</label>
+                        <input class="input" type="text" ng-model="name" name="name" required>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="email">Email*</label>
+                        <input class="input" type="email" name="email" ng-model="email" required>
+                    </div>
+                </div>
+                <button class="btn" ng-click='addComment();' id="commentBtn">Post Comment</button>
+
+            </form>
+        </div>
+    </section>
+</div>

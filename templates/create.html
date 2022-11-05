@@ -1,0 +1,33 @@
+<div ng-controller="createController" class="form">
+    <form action="http://localhost:3000/submit" name="blogpost" method="post">
+    
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" ng-model="title">
+        <br>
+
+        <label for="content">Content:</label>
+        <textarea class="commtextar" type="text" name="content" id="content" rows="10" cols="20" ng-model="content"></textarea>
+        <br>
+
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" ng-model="date">
+        <br>
+
+        <label for="image">Image:</label>
+        <input type="text" name="image" id="image" ng-model="image">
+        <br>
+
+        <label for="category">Category:</label>
+        <select ng-model="category" name="category" id="category">
+            <option value="travel">Travel</option>
+            <option value="style">Style</option>
+            <option value="design">Design</option>
+            <option value="food">Food</option>
+            <option value="relationships">Relationships</option>
+          </select>
+          <br>
+          <br>
+        <input class="btn" type="submit" value="ADD POST">
+        {{enteredTitle}}
+    </form>
+</div>

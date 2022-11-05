@@ -1,0 +1,50 @@
+<div ng-controller="homeController">
+    <hr class="navline">
+    <nav style="margin: 2rem">
+        Search : <input class="input" type="text" placeholder="search blog posts by title" ng-model="searchText.title"
+            name="" id="">
+    </nav>
+    <hr class="navline">
+    <div class="bar">
+        <a ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'">
+            <i class="fa fa-thin fa-border-all" style="color: #ffffff"></i>
+        </a>
+        <a ng-class="{active: layout == 'list'}" ng-click="layout = 'list'">
+            <i class="fa fa-thin fa-list" style="color: #ffffff"></i>
+        </a>
+    </div>
+    <hr class="navline">
+    
+    <ul ng-show="layout == 'grid'" class="grid">
+        <li ng-repeat="blog in blogs | filter: searchText.title">
+            <div class="card">
+                <div style="text-align: center;color:#855">
+                    <p>{{blog.id}}</p>
+                </div>
+                <img ng-src="{{blog.image}}" height="250rem" width="250rem" />
+                <div class="cardcontent">
+                    <p>{{blog.date | date:'d MMM, y'}}</p>
+                    <p>{{blog.title | limitTo: 15 }}...</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ul ng-show="layout == 'list'" class="list">
+        <li ng-repeat="blog in blogs | filter: searchText.title">
+            <hr class="navline">
+            <div class="list-card">
+                <img ng-src="{{blog.image}}" height="200rem" width="200rem" />
+                <p style="font-weight: bolder;text-align: center;color: #85586F;">{{blog.title}}</p>
+                <div class="cardcontent"
+                    style="padding: 2rem ;background-color: #F8ECD1; color:black;font-size:0.75rem">
+                    <p>{{blog.date | date:'d MMM, y'}}</p>
+                    <p style="font-weight: bold">{{blog.title | limitTo: 15 }}...</p>
+                </div>
+                <div style="text-align: center">
+                    {{blog.content | limitTo:150 }}...
+                </div>
+            </div>
+            <hr class="navline">
+        </li>
+    </ul>
+</div>

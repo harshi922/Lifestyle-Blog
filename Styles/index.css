@@ -1,0 +1,48 @@
+.navlinks {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem;
+    font-weight: 300;
+    font-size: larger;
+}
+.cnavlinks {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 300;
+    font-size: small;
+}
+.navlink{
+    text-decoration: none;
+    color: #85586F;
+}
+.cnavlink{
+    text-decoration: none;
+    color: #85586F;
+}
+
+.navlink:hover{
+    border-bottom: 1rem solid #DEB6AB;
+    padding-bottom: 1rem;
+    color: #DEB6AB;
+}
+
+.cnavlink:hover{
+    border-bottom: 0.5rem solid #DEB6AB;
+    padding-bottom: 0.25rem;
+    color: #DEB6AB;
+}
+.navlink:active{
+    border-bottom: 0.5rem solid #DEB6AB;
+    padding-bottom: 0.25rem;
+    color: #DEB6AB;
+}
+.form{
+    margin: 2rem 0 0 11rem;
+    padding: 2rem 5rem;
+    width: 50%;
+    border: 2px solid #85586F;
+}

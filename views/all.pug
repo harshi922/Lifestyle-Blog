@@ -1,0 +1,17 @@
+html
+    body
+        table(style='text-align:center;width:50%', border='1')
+            tr
+                th Title
+                th Content
+                th Date
+                th Image
+                th Category
+
+            each item,i in result
+                tr
+                    td= item.Title
+                    td= item.Content
+                    td= item.Date
+                    td= item.Image
+                    td= item.Category
